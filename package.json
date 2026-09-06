@@ -1,0 +1,36 @@
+{
+  "name": "dsh-gpt-icon",
+  "version": "1.0.0",
+  "description": "Keeps the blue ChatGPT-knot icon branding on DSH Desktop: re-applies window/tray/splash/in-app logos and the EXE embedded icon after every app update.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "bin/patch-exe-icon.ps1",
+    "assets",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "dsh-plugin",
+    "dsh-desktop",
+    "icon",
+    "chatgpt",
+    "openai",
+    "windows"
+  ]
+}

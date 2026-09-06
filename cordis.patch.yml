@@ -1,0 +1,4 @@
+# dsh-gpt-icon: keep the blue ChatGPT-knot branding across DSH Desktop updates.
+- insert:
+    - id: gpt-icon
+      name: dsh-gpt-icon

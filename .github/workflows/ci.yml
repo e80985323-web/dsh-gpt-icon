@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate plugin manifest
+        run: node -e "const j=JSON.parse(require('fs').readFileSync('package.json','utf8')); if(!j.dsh||!j.dsh.bundle||!j.dsh.bundle.patch) throw new Error('missing dsh.bundle.patch'); console.log('package.json OK')"
+
+      - name: Syntax-check plugin entry
+        run: node --check lib/index.js
+
+      - name: Syntax-check PowerShell payloads
+        run: |
+          pwsh -NoProfile -Command "[scriptblock]::Create((Get-Content -Raw bin/patch-exe-icon.ps1)) | Out-Null; 'bin/patch-exe-icon.ps1 OK'"
+          pwsh -NoProfile -Command "[scriptblock]::Create((Get-Content -Raw tools/install.ps1)) | Out-Null; 'tools/install.ps1 OK'"
+          pwsh -NoProfile -Command "[scriptblock]::Create((Get-Content -Raw tools/build-assets.ps1)) | Out-Null; 'tools/build-assets.ps1 OK'"
+
+      - name: Check required assets are present
+        run: |
+          for f in assets/icon.png assets/icon.ico assets/dsh-loader.gif assets/dsh-loader-dark.gif \
+                   assets/dsh-desktop-logo.png assets/dsh-desktop-logo-light.png assets/dsh-desktop-logo-dark.png \
+                   assets/chatgpt-blue-hollow.svg assets/dsh-badge.png; do
+            test -s "$f" || { echo "missing or empty: $f"; exit 1; }
+          done
+          echo "assets OK"
