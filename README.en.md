@@ -1,6 +1,6 @@
 # dsh-gpt-icon
 
-[![CI](https://github.com/OWNER/dsh-gpt-icon/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/dsh-gpt-icon/actions/workflows/ci.yml)
+[![CI](https://github.com/e80985323-web/dsh-gpt-icon/actions/workflows/ci.yml/badge.svg)](https://github.com/e80985323-web/dsh-gpt-icon/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)]()
 
@@ -23,7 +23,7 @@ DSH Desktop updates replace the whole install directory (`D:\dsh desktop`), wipi
 Requires Windows 10/11, DSH Desktop ≥ 0.7.x, Windows PowerShell 5+.
 
 ```powershell
-git clone https://github.com/OWNER/dsh-gpt-icon.git
+git clone https://github.com/e80985323-web/dsh-gpt-icon.git
 cd dsh-gpt-icon
 powershell -NoProfile -ExecutionPolicy Bypass -File tools\install.ps1
 ```

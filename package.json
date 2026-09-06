@@ -32,5 +32,10 @@
     "chatgpt",
     "openai",
     "windows"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e80985323-web/dsh-gpt-icon.git"
+  },
+  "homepage": "https://github.com/e80985323-web/dsh-gpt-icon#readme"
 }
